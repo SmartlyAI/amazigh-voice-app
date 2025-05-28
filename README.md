@@ -10,22 +10,6 @@ Une application web Flask pour collecter des enregistrements audio de phrases en
 - Indicateur visuel pour les phrases déjà enregistrées
 - Page admin protégée (statistiques par utilisateur)
 
-##  Structure du projet
-
-amazigh-voice-app/
-├── app.py # Application principale Flask
-├── data/ # Contient le fichier CSV des phrases
-│ └── sentences.csv
-├── final_dataset.csv # Sortie avec les enregistrements
-├── static/
-│ └── audios/ # Audios enregistrés
-  └── script.js
-└── templates/ 
-  └── admin_dashbord.html
-  └── admin_login.html
-  └── index.html
-  └── recorder.html
-  └── merci.html
 
 ## ⚙️ Installation
 
