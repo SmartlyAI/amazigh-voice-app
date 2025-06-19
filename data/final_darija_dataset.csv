@@ -1,0 +1,4 @@
+user_id,nom,prenom,age,genre,langue,latin,arabe,audio_filename,duration_sec,timestamp
+test_8_test,test,test,20,homme,darija,khouya deber lina kifach nsejlou men tilfaz lcomputer,خويا دبر لينا كيفاش نسجلو من التلفاز لكمبيوتر,audio_test_8_test_darija_653e85c2.wav,3.16,2025-06-19T22:11:28.288787
+test_8_test,test,test,20,homme,darija,khouya dir lina kifach nsejlou men tilfaz lcomputer,خويا دير لينا كيفاش نسجلو من التلفاز للكمبيوتر,audio_test_8_test_darija_86a0118a.wav,4.22,2025-06-19T22:11:56.712814
+test_8_test,test,test,20,homme,darija,chkoun li kaytferej w dayr choufa dyal lmo7a9i9 conan yekhbet j'aime,شكون لي كيتفرج و داير الشوفة ديال المحقق كونان يخبط جيم,audio_test_8_test_darija_b1d582be.wav,4.74,2025-06-19T22:16:55.079707

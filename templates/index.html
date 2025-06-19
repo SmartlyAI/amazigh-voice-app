@@ -10,7 +10,13 @@
   <style>
     body {
       font-family: "Josefin Sans", sans-serif;
-      font-optical-sizing: auto;}
+      font-optical-sizing: auto;
+    }
+    /* Style pour rendre le bouton radio plus visible lorsqu'il est sélectionné */
+    input[type="radio"]:checked + label {
+        border-color: #3B82F6; /* blue-500 */
+        background-color: #EFF6FF; /* blue-50 */
+    }
   </style>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
@@ -36,9 +42,28 @@
         <select id="genre" name="genre" required class="mt-1 block w-full border border-gray-300 rounded-lg p-2">
           <option value="homme">Homme</option>
           <option value="femme">Femme</option>
-
         </select>
       </div>
+
+      <!-- NOUVEAU: Choix de la langue obligatoire -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Langue à enregistrer</label>
+        <div class="mt-2 grid grid-cols-2 gap-4">
+            <div>
+                <input type="radio" id="lang-tmz" name="langue" value="tmz" class="hidden" required>
+                <label for="lang-tmz" class="block cursor-pointer border border-gray-300 rounded-lg p-4 text-center hover:border-blue-500 transition">
+                    Tamazight
+                </label>
+            </div>
+            <div>
+                <input type="radio" id="lang-darija" name="langue" value="darija" class="hidden" required>
+                <label for="lang-darija" class="block cursor-pointer border border-gray-300 rounded-lg p-4 text-center hover:border-blue-500 transition">
+                    Darija
+                </label>
+            </div>
+        </div>
+      </div>
+
       <div class="pt-4">
         <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition">Commencer</button>
       </div>

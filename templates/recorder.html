@@ -7,263 +7,319 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Ancizar+Sans:ital,wght@0,100..1000;1,100..1000&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
-  <style>
-
-    
-    body {
-      font-family: "Josefin Sans", sans-serif;
-      font-optical-sizing: auto;
-      background-color: #f9fafb;
-      background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
-      margin: 0;
-      padding: 0;
-      color: #1f2937;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 60px auto;
-      background: #ffffff;
-      padding: 50px;
-      border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
-      border: 1px solid #e5e7eb;
-    }
-
-    h1 {
-      font-size: 26px;
-      margin-bottom: 10px;
-      color: #111827;
-    }
-
-    p.subtitle {
-      font-size: 16px;
-      color: #4b5563;
-      margin-bottom: 30px;
-    }
-
-    .phrase-block {
-      margin-bottom: 25px;
-    }
-
-    .phrase-block label {
-      font-weight: 600;
-      font-size: 15px;
-      color: #374151;
-      display: block;
-      margin-bottom: 6px;
-    }
-
-    .phrase-text {
-      font-size: 15px; 
-      color: #111827;
-      border-left: 4px solid #2563eb;
-      padding-left: 12px;
-      background-color: #f3f4f6;
-      padding: 10px 12px; 
-      border-radius: 6px;
-      line-height: 1.6; 
-    }
-    
-    /* Spécifique pour le texte arabe pour s'assurer qu'il s'affiche correctement */
-    .phrase-text.arabic {
-        font-size: 18px;
-        direction: rtl; /* Direction de droite à gauche */
-        text-align: right; /* Alignement à droite */
-        font-family: 'Noto Naskh Arabic', 'Traditional Arabic', serif; /* Polices arabes communes */
-    }
-
-
-    .status {
-      font-size: 15px;
-      font-weight: 600;
-      margin-bottom: 20px;
-    }
-
-    .status.recorded {
-      color: #059669;
-    }
-
-    .status.not-recorded {
-      color: #d97706;
-    }
-
-    .buttons {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-      margin-top: 30px;
-    }
-
-    .buttons button {
-      flex: 1;
-      min-width: 160px;
-      padding: 12px 18px;
-      font-size: 15px;
-      border: none;
-      border-radius: 8px;
-      color: white;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    #start { background-color: #1f2937; }
-    #start:hover { background-color: #111827; }
-
-    #stop { background-color: #dc2626; }
-    #stop:hover { background-color: #b91c1c; }
-
-    #play { background-color: #2563eb; }
-    #play:hover { background-color: #1d4ed8; }
-
-    #valider { background-color: #16a34a; }
-    #valider:hover { background-color: #15803d; }
-
-    #start:disabled,
-    #stop:disabled,
-    #play:disabled,
-    #valider:disabled {
-      background-color: #9ca3af;
-      cursor: not-allowed;
-    }
-
-    .audio-container, .default-audio-container { /* Style pour les deux conteneurs audio */
-      margin-top: 25px;
-    }
-    
-    .default-audio-container label {
-        font-weight: 600;
-        font-size: 15px;
-        color: #374151;
-        display: block;
-        margin-bottom: 8px;
-    }
-
-
-    audio {
-      width: 100%;
-      margin-top: 10px;
-    }
-
-    #success-message {
-      display: none;
-      color: #059669;
-      font-weight: 600;
-      margin-top: 25px;
-      text-align: center;
-    }
-
-    .navigation {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 40px;
-    }
-
-    .navigation form button {
-      background: none;
-      border: none;
-      color: #2563eb;
-      font-size: 15px;
-      cursor: pointer;
-      padding: 0;
-    }
-
-    .navigation form button:hover {
-      text-decoration: underline;
-    }
-
-    .arabic-label { /* Conserver pour le sous-titre */
-      font-size: 14px;
-      color: #374151;
-      margin-top: 4px;
-      font-style: italic;
-    }
-    .phrase-counter {
-        text-align: center;
-        font-size: 14px;
-        color: #6b7280;
-        margin-bottom: 20px;
-    }
-  </style>
-  <!-- Ajout d'une police Google pour l'arabe -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* ... (tous vos styles CSS sont conservés ici) ... */
+    /* NOUVEAU STYLE pour les messages flash */
+    .flash-message {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+        border-radius: 8px;
+        font-weight: 500;
+        text-align: center;
+        border: 1px solid transparent;
+    }
+    .flash-success {
+        color: #065f46;
+        background-color: #d1fae5;
+        border-color: #6ee7b7;
+    }
+    .flash-warning {
+        color: #92400e;
+        background-color: #fef3c7;
+        border-color: #fcd34d;
+    }
+    /* ... (le reste de vos styles) ... */
+     :root {
+      --font-primary: "Ancizar Sans", sans-serif;
+      --font-secondary: "Josefin Sans", sans-serif;
+      --font-display: "Lora", serif;
+
+      --color-text-primary: #1f2937;
+      --color-text-secondary: #4b5563;
+      --color-text-subtle: #6b7280;
+      --color-text-inverse: #ffffff;
+      
+      --color-bg-page: #f9fafb;
+      --color-bg-container: #ffffff;
+      --color-bg-alt: #f3f4f6;
+
+      --color-border: #e5e7eb;
+      --color-border-focus: #3b82f6;
+
+      --color-primary: #2563eb;
+      --color-primary-hover: #1d4ed8;
+      
+      --color-dark: #1f2937;
+      --color-dark-hover: #111827;
+
+      --color-success: #16a34a;
+      --color-success-hover: #15803d;
+      --color-success-light: #d1fae5;
+      --color-success-text: #065f46;
+
+      --color-warning: #d97706;
+      --color-warning-light: #fef3c7;
+      --color-warning-text: #92400e;
+
+      --color-danger: #dc2626;
+      --color-danger-hover: #b91c1c;
+      
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+      --border-radius-md: 8px;
+      --border-radius-lg: 16px;
+      
+      --nav-button-offset: 20px;
+    }
+
+    body {
+      font-family: var(--font-primary);
+      font-optical-sizing: auto;
+      background-color: var(--color-bg-page);
+      background-image: radial-gradient(var(--color-border) 0.5px, transparent 0.5px);
+      background-size: 15px 15px;
+      margin: 0;
+      padding: 30px var(--nav-button-offset);
+      color: var(--color-text-primary);
+      line-height: 1.6;
+    }
+
+    .container { max-width: 960px; margin: 50px auto; background: var(--color-bg-container); padding: 40px 50px; border-radius: var(--border-radius-lg); box-shadow: var(--shadow-lg); border: 1px solid var(--color-border); position: relative; }
+    .page-header-section { padding-bottom: 30px; margin-bottom: 40px; border-bottom: 1px solid var(--color-border); text-align: center; }
+    h1 { font-family: var(--font-display); font-size: 34px; font-weight: 600; margin-top: 0; margin-bottom: 10px; color: var(--color-text-primary); }
+    p.subtitle { font-size: 18px; color: var(--color-text-secondary); margin-bottom: 25px; line-height: 1.7; max-width: 700px; margin-left: auto; margin-right: auto; }
+    .arabic-label-subtitle { font-size: 16px; color: var(--color-text-subtle); display: block; margin-top: 6px; }
+    .phrase-counter { font-size: 15px; color: var(--color-text-subtle); margin-bottom: 15px; font-weight: 500; }
+    .progress-indicator { width: 100%; max-width: 400px; margin-left: auto; margin-right: auto; height: 10px; background-color: var(--color-border); border-radius: 5px; overflow: hidden; }
+    .progress-indicator-fill { height: 100%; background-color: var(--color-primary); border-radius: 5px; transition: width 0.4s cubic-bezier(0.65, 0, 0.35, 1); }
+    .phrase-block { margin-bottom: 45px; padding: 0; }
+    .phrase-block label { font-weight: 600; font-size: 18px; color: var(--color-text-primary); display: block; margin-bottom: 12px; }
+    .phrase-block label .arabic-label { font-size: 0.9em; font-weight: normal; color: var(--color-text-secondary); }
+    .phrase-text { font-family: var(--font-secondary); font-size: 19px; color: var(--color-text-primary); border-left: 5px solid var(--color-primary); padding: 14px 18px; background-color: var(--color-bg-alt); border-radius: 6px; line-height: 1.7; }
+    .phrase-text.arabic { font-size: 21px; direction: rtl; text-align: right; font-family: 'Noto Naskh Arabic', 'Traditional Arabic', serif; }
+    .form-section-label { font-weight: 600; font-size: 17px; color: var(--color-text-primary); display: block; margin-bottom: 10px; }
+    .form-section-label .arabic-label { font-size: 0.9em; font-weight: normal; color: var(--color-text-secondary); }
+    .buttons { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 18px; margin-top: 35px; margin-bottom: 35px; }
+    .buttons button { padding: 15px 22px; font-size: 16px; font-weight: 500; border: none; border-radius: var(--border-radius-md); color: var(--color-text-inverse); cursor: pointer; transition: background-color 0.2s ease-out, transform 0.1s ease-out; text-align: center; }
+    .buttons button:hover { transform: translateY(-1px); }
+    .buttons button:active { transform: translateY(0px); }
+    #start { background-color: var(--color-dark); } #start:hover { background-color: var(--color-dark-hover); }
+    #stop { background-color: var(--color-danger); } #stop:hover { background-color: var(--color-danger-hover); }
+    #play { background-color: var(--color-primary); } #play:hover { background-color: var(--color-primary-hover); }
+    #valider { background-color: var(--color-success); } #valider:hover { background-color: var(--color-success-hover); }
+    #start:disabled, #stop:disabled, #play:disabled, #valider:disabled { background-color: #9ca3af; cursor: not-allowed; transform: none; }
+    .buttons button span[dir="rtl"] { margin-left: 4px; }
+    .audio-container, .default-audio-container { margin-top: 30px; padding: 20px; background-color: var(--color-bg-alt); border-radius: var(--border-radius-md); border: 1px solid var(--color-border); }
+    audio { width: 100%; margin-top: 10px; }
+    .navigation { display: none; }
+    .fixed-nav-button { position: fixed; top: 50%; transform: translateY(-50%); z-index: 1000; background-color: var(--color-primary); color: var(--color-text-inverse); border: none; border-radius: var(--border-radius-md); width: auto; height: auto; padding: 10px 15px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background-color 0.2s ease-out; font-size: 15px; line-height: 1.4; white-space: nowrap; }
+    .fixed-nav-button:hover { background-color: var(--color-primary-hover); }
+    .fixed-nav-button.fixed-nav-prev { left: var(--nav-button-offset); }
+    .fixed-nav-button.fixed-nav-prev .icon { margin-right: 8px; font-size: 18px; }
+    .fixed-nav-button.fixed-nav-next { right: var(--nav-button-offset); }
+    .fixed-nav-button.fixed-nav-next .icon { margin-left: 8px; font-size: 18px; }
+    .fixed-nav-button:disabled { background-color: var(--color-text-subtle); cursor: not-allowed; opacity: 0.6; transform: translateY(-50%); }
+    .fixed-nav-button:disabled:hover { background-color: var(--color-text-subtle); }
+    .fixed-nav-button .icon, .fixed-nav-button .nav-text { display: inline-block; }
+    .fixed-nav-button .nav-text span[dir="rtl"] { margin-left: 4px; }
+    @media (max-width: 768px) {
+      body { padding: 20px; }
+      .fixed-nav-button { position: static; transform: none; width: auto; height: auto; border-radius: var(--border-radius-md); padding: 12px 15px; font-size: 14px; margin: 0 5px; white-space: normal; }
+      .fixed-nav-button .icon { font-size: 16px; }
+      .fixed-nav-button.fixed-nav-prev .icon { margin-right: 6px; }
+      .fixed-nav-button.fixed-nav-next .icon { margin-left: 6px; }
+      .mobile-navigation-container { display: flex; justify-content: space-between; align-items: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--color-border); }
+      .fixed-nav-button.fixed-nav-prev, .fixed-nav-button.fixed-nav-next { flex-grow: 1; margin: 0 5px; text-align: center; }
+    }
+    .status { font-size: 16px; font-weight: 500; margin-bottom: 30px; margin-top: 10px; padding: 14px 18px; border-radius: var(--border-radius-md); text-align: center; }
+    .status.recorded { background-color: var(--color-success-light); color: var(--color-success-text); border: 1px solid var(--color-success); }
+    .status.not-recorded { background-color: var(--color-warning-light); color: var(--color-warning-text); border: 1px solid var(--color-warning); }
+  </style>
 </head>
 <body>
 
-  <div class="container">
-    <h1>Enregistrement de phrase / <span dir="rtl">تسجيل الجملة</span></h1>
-    <p class="subtitle">Veuillez lire la phrase ci-dessous à voix haute et validez l’enregistrement.<br><span class="arabic-label">الرجاء قراءة الجملة بصوت عالٍ وتأكيد التسجيل.</span></p>
-    
-    {% if current_phrase_number and total_phrases %}
-    <p class="phrase-counter">Phrase {{ current_phrase_number }} / {{ total_phrases }}</p>
-    {% endif %}
-
-    <div class="phrase-block">
-      <label>Tamazight Tifinagh :</label>
-      <div class="phrase-text">{{ phrase.tifinagh }}</div>
+    <div class="mobile-navigation-container"> 
+        <form method="POST" action="{{ url_for('previous_phrase') }}" style="display: contents;">
+          <button type="submit" class="fixed-nav-button fixed-nav-prev" title="Phrase précédente" {% if current_phrase_number <= 1 %}disabled{% endif %}>
+            <span class="icon">←</span>
+            <span class="nav-text">Précédent</span>
+          </button>
+        </form>
+        <form method="POST" action="{{ url_for('next_phrase') }}" style="display: contents;">
+          <button type="submit" class="fixed-nav-button fixed-nav-next" title="Phrase suivante" {% if current_phrase_number >= total_phrases %}disabled{% endif %}>
+            <span class="nav-text">Suivant</span>
+            <span class="icon">→</span>
+          </button>
+        </form>
     </div>
 
-    <div class="phrase-block">
-      <label>Tamazight Latin :</label>
-      <div class="phrase-text">{{ phrase.latin }}</div>
+    <div class="container">
+        <!-- NOUVEAU : Bloc pour afficher les messages flash -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                <div class="flash-message flash-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <div class="page-header-section">
+            <h1>Enregistrement de Phrase <span dir="rtl">تسجيل الجملة</span></h1>
+            <p class="subtitle">
+                Veuillez lire attentivement la phrase présentée ci-dessous à voix haute, puis validez votre enregistrement.
+                <span class="arabic-label-subtitle" dir="rtl">الرجاء قراءة الجملة المعروضة أدناه بصوت عالٍ وتركيز، ثم تأكيد التسجيل الخاص بك.</span>
+            </p>
+            
+            {% if current_phrase_number and total_phrases and total_phrases > 0 %}
+            <p class="phrase-counter">Phrase {{ current_phrase_number }} sur {{ total_phrases }}</p>
+            <div class="progress-indicator">
+                <div class="progress-indicator-fill" style="width: {{ (current_phrase_number / total_phrases) * 100 }}%;"></div>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- AFFICHAGE DYNAMIQUE DES PHRASES -->
+        {% if phrase.tifinagh and phrase.tifinagh|trim != "" %}
+        <div class="phrase-block">
+            <label>Tamazight (Tifinagh) :</label>
+            <div class="phrase-text">{{ phrase.tifinagh }}</div>
+        </div>
+        {% endif %}
+
+        <div class="phrase-block">
+            <label>{% if session.langue == 'tmz' %}Tamazight (Latin) :{% else %}Darija (Latin) :{% endif %}</label>
+            <div class="phrase-text">{{ phrase.latin }}</div>
+        </div>
+
+        {% if phrase.arabe and phrase.arabe|trim != "" %}
+        <div class="phrase-block">
+            <label>Transcription Arabe (phonétique) / <span class="arabic-label" dir="rtl">النقل الصوتي باللغة العربية</span> :</label>
+            <div class="phrase-text arabic">{{ phrase.arabe }}</div>
+        </div>
+        {% endif %}
+
+        <!-- NOUVEAU : Message de statut sur la phrase actuelle -->
+        {% if is_phrase_recorded %}
+          <p class="status recorded">✅ Vous avez déjà enregistré cette phrase.</p>
+        {% else %}
+          <p class="status not-recorded">🟠 Vous n'avez pas encore enregistré cette phrase.</p>
+        {% endif %}
+
+        <!-- AFFICHAGE DE L'AUDIO DE RÉFÉRENCE -->
+        {% if phrase.default_audio and phrase.default_audio|string|trim != "" %}
+        <div class="default-audio-container">
+            <label class="form-section-label">Audio de référence / <span class="arabic-label" dir="rtl">تسجيل صوتي مرجعي</span> :</label>
+            {% if session.langue == 'tmz' %}
+                {% set audio_folder_path = 'audios-tmz' %}
+            {% else %}
+                {% set audio_folder_path = 'audios-darija' %}
+            {% endif %}
+            <audio controls class="w-full mt-2" src="{{ url_for('static', filename=audio_folder_path + '/' + phrase.default_audio) }}">
+                Votre navigateur ne supporte pas l'élément audio.
+            </audio>
+        </div>
+        {% endif %}
+
+        <input type="hidden" id="tifinagh" value="{{ phrase.tifinagh or '' }}">
+        <input type="hidden" id="latin" value="{{ phrase.latin or '' }}">
+        <input type="hidden" id="arabe" value="{{ phrase.arabe or '' }}">
+
+        <div class="buttons">
+            <button id="start">Commencer <span dir="rtl">ابدأ</span></button>
+            <button id="stop" disabled>Arrêter <span dir="rtl">أوقف</span></button>
+            <button id="play" disabled>Écouter <span dir="rtl">شغّل</span></button>
+            <button id="valider" disabled>Valider <span dir="rtl">تأكيد</span></button>
+        </div>
+
+        <div class="audio-container">
+            <label class="form-section-label">Votre enregistrement : <span class="arabic-label" dir="rtl">التسجيل الخاص بك:</span></label>
+            <audio id="audio" controls></audio>
+        </div>
     </div>
 
-    {# NOUVEAU: Affichage de la transcription Arabe si disponible #}
-    {% if phrase.arabe %}
-    <div class="phrase-block">
-      <label>Transcription Arabe (phonétique) / <span dir="rtl">النقل الصوتي باللغة العربية</span> :</label>
-      <div class="phrase-text arabic">{{ phrase.arabe }}</div>
-    </div>
-    {% endif %}
+  <script>
+    // Le script JS est conservé, il est fonctionnel avec la nouvelle structure HTML.
+    const startBtn = document.getElementById('start');
+    const stopBtn = document.getElementById('stop');
+    const playBtn = document.getElementById('play');
+    const validateBtn = document.getElementById('valider');
+    const audioPlayer = document.getElementById('audio');
 
+    let mediaRecorder;
+    let audioChunks = [];
+    let audioBlob;
+    let startTime;
 
-    {% if phrase.get('recorded', 'false').lower() == 'true' %}
-      <p class="status recorded">✅ Cette phrase a déjà été enregistrée. <span dir="rtl">هذه الجملة تم تسجيلها بالفعل.</span></p>
-    {% else %}
-      <p class="status not-recorded">🟠 Cette phrase n’a pas encore été enregistrée. <span dir="rtl">هذه الجملة لم تُسجل بعد.</span></p>
-    {% endif %}
+    startBtn.onclick = async () => {
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            mediaRecorder = new MediaRecorder(stream, { mimeType: 'audio/webm' });
+            
+            mediaRecorder.ondataavailable = event => {
+                audioChunks.push(event.data);
+            };
+            mediaRecorder.onstart = () => {
+                startTime = new Date();
+                audioChunks = [];
+                startBtn.disabled = true; stopBtn.disabled = false;
+                playBtn.disabled = true; validateBtn.disabled = true;
+            };
+            mediaRecorder.onstop = () => {
+                const duration = (new Date() - startTime) / 1000;
+                audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+                const audioUrl = URL.createObjectURL(audioBlob);
+                audioPlayer.src = audioUrl;
+                audioPlayer.dataset.duration = duration.toFixed(2);
+                stopBtn.disabled = true; startBtn.disabled = false;
+                playBtn.disabled = false; validateBtn.disabled = false;
+            };
+            mediaRecorder.start();
+        } catch (err) {
+            console.error("Erreur d'accès au micro:", err);
+            alert("Erreur: Impossible d'accéder au micro. Veuillez vérifier les permissions.");
+        }
+    };
 
-    {# NOUVEAU: Lecteur pour l'audio par défaut si disponible #}
-    {% if phrase.default_audio and phrase.default_audio|string|trim != "" %}
-    <div class="default-audio-container">
-        <label>Audio de référence / <span dir="rtl">تسجيل صوتي مرجعي</span> :</label>
-        <audio controls src="{{ url_for('static', filename='audios/' + phrase.default_audio +'.wav') }}">
-            Votre navigateur ne supporte pas l'élément audio. <span dir="rtl">متصفحك لا يدعم عنصر الصوت.</span>
-        </audio>
-    </div>
-    {% endif %}
+    stopBtn.onclick = () => {
+        if (mediaRecorder && mediaRecorder.state === 'recording') { mediaRecorder.stop(); }
+    };
+    playBtn.onclick = () => { audioPlayer.play(); };
 
-
-    <input type="hidden" id="tifinagh" value="{{ phrase.tifinagh }}">
-    <input type="hidden" id="latin" value="{{ phrase.latin }}">
-    {# Potentiellement ajouter l'arabe ici si script.js en a besoin #}
-    <input type="hidden" id="arabe" value="{{ phrase.arabe if phrase.arabe else '' }}">
-
-
-    <div class="buttons">
-      <button id="start">Commencer / <span dir="rtl">ابدأ</span></button>
-      <button id="stop" disabled>Arrêter / <span dir="rtl">أوقف</span></button>
-      <button id="play" disabled>Lire / <span dir="rtl">شغّل</span></button>
-      <button id="valider" disabled>Valider / <span dir="rtl">تأكيد</span></button>
-    </div>
-
-    <div class="audio-container">
-      <p style="font-weight: 600; font-size: 15px; color: #374151; display: block; margin-bottom: -5px;">Votre enregistrement :</p>
-      <audio id="audio" controls></audio>
-    </div>
-
-    <div id="success-message">✅ Enregistrement effectué avec succès ! / <span dir="rtl">تم التسجيل بنجاح!</span></div>
-
-    <div class="navigation">
-      <form method="POST" action="{{ url_for('previous_phrase') }}">
-        <button type="submit" {% if current_phrase_number == 1 %}disabled title="Vous êtes à la première phrase"{% endif %}>← Phrase précédente / <span dir="rtl">الجملة السابقة</span></button>
-      </form>
-      <form method="POST" action="{{ url_for('next_phrase') }}">
-        <button type="submit">Phrase suivante → / <span dir="rtl">الجملة التالية</span></button>
-      </form>
-    </div>
-  </div>
-
-  <script src="{{ url_for('static', filename='script.js') }}"></script>
+    validateBtn.onclick = () => {
+        if (!audioBlob) return;
+        validateBtn.disabled = true;
+        validateBtn.textContent = 'Envoi en cours...';
+        const formData = new FormData();
+        formData.append('audio_data', audioBlob, 'recording.wav');
+        formData.append('duration', audioPlayer.dataset.duration);
+        formData.append('tifinagh', document.getElementById('tifinagh').value);
+        formData.append('latin', document.getElementById('latin').value);
+        formData.append('arabe', document.getElementById('arabe').value);
+      
+        fetch("{{ url_for('upload') }}", { method: 'POST', body: formData })
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(err => { throw new Error(err.message || 'Erreur serveur') });
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                window.location.href = "{{ url_for('recorder') }}";
+            } else {
+                alert(`Erreur: ${data.message}`);
+                validateBtn.disabled = false;
+                validateBtn.textContent = 'Valider';
+            }
+        })
+        .catch(err => {
+            console.error("Erreur d'upload:", err);
+            alert("Erreur réseau lors de l'envoi : " + err.message);
+            validateBtn.disabled = false;
+            validateBtn.textContent = 'Valider';
+        });
+    };
+  </script>
 </body>
 </html>

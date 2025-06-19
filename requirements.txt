@@ -1,0 +1,6 @@
+Flask
+pandas
+pydub
+gunicorn
+datasets
+huggingface-hub
